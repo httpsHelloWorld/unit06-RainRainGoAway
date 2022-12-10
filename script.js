@@ -1,4 +1,4 @@
-let formEl = document.getElementById('searchBarInput');
+let formEl = document.querySelector('.searchBar');
 
 let keyAPI = '8a63d048dd1e649f180480a62f90d54e';
 

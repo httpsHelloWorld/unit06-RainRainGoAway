@@ -48,3 +48,12 @@ function weatherForecast(cityName) {
             };
         });
 };
+
+// MAKE THE SEARCH BAR FUNCTIONAL
+formEl.addEventListener("submit", function(event) {
+    event.preventDefault();
+    let cityName = document.getElementById('searchBarInput').value;
+    console.log(cityName);
+    weatherInformation(cityName);
+    weatherForecast(cityName);
+});

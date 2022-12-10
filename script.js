@@ -10,7 +10,7 @@ function weatherInformation(cityName) {
             console.log(res);
             var displayWeatherInformationComponents = `
                 <div class="card" style"width: 18rem;">
-                    <img src="https://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png" class="card-img-top">
+                    <img src="http://openweathermap.org/img/w/${res.list[0].weather[0].icon}.png">
                     <div class="displayWeatherInformationCards">
                         <h5 class="cardTitle">${cityName}</h5>
                         <p class="cardText">Tempreture:${res.main.temp}<span>${res.weather[0].description}</span></p>
@@ -34,7 +34,7 @@ function weatherForecast(cityName) {
             for (let i = 0; i < weatherData.length; i = i + 8) {
                 displayWeatherForecastComponents += `
                 <div class="card" style="width: 18rem;">
-                    <img src="https://openweathermap.org/img/wn/${weatherData[i].weather[0].icon}@2x.png>
+                    <img src="http://openweathermap.org/img/w/${res.list[0].weather[0].icon}.png">
                     <div class="displayWeatherForecastCards">
                         <h5 class="cardTitle">${cityName}</h5>
                         <p class="cardText">Temperature:${weatherData[i].main.temp} <span>${weatherData[i].weather[0].description}</span></p>

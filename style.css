@@ -9,3 +9,7 @@ body {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.searchBar {
+    margin-top: 20px;
+}

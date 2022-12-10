@@ -37,7 +37,7 @@ function weatherForecast(cityName) {
                     <img src="https://openweathermap.org/img/wn/${weatherData[i].weather[0].icon}@2x.png>
                     <div class="displayWeatherForecastCards">
                         <h5 class="cardTitle">${cityName}</h5>
-                        <p class="cardText">emperature:${weatherData[i].main.temp} <span>${weatherData[i].weather[0].description}</span></p>
+                        <p class="cardText">Temperature:${weatherData[i].main.temp} <span>${weatherData[i].weather[0].description}</span></p>
                         <p class="cardText">Humidity:${weatherData[i].main.humidity}</p>
                         <p class="cardText">Wind Speed:${weatherData[i].wind.speed}</p>
                     </div>

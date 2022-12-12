@@ -13,9 +13,9 @@ function weatherInformation(cityName) {
                     <img src="http://openweathermap.org/img/w/${res.list[0].weather[0].icon}.png">
                     <div class="displayWeatherInformationCards">
                         <h5 class="cardTitle">${cityName}</h5>
-                        <p class="cardText">Tempreture: ${res.main.temp}<span>${res.weather[0].description}</span></p>
-                        <p class="cardText">Humidity: ${res.main.humidity}</p>
-                        <p class="cardText">Wind Speed: ${res.wind.speed}</p>
+                        <p class="cardText">Tempreture: ${res.list[0].main.temp}<span>${res.list[0].weather[0].description}</span></p>
+                        <p class="cardText">Humidity: ${res.list[0].main.humidity}</p>
+                        <p class="cardText">Wind Speed: ${res.list[0].wind.speed}</p>
                     </div>
                 </div>
             `

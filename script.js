@@ -1,7 +1,6 @@
 let formEl = document.querySelector('.searchBar');
 
 let keyAPI = '8a63d048dd1e649f180480a62f90d54e';
-console.log('JS')
 
 // DISPLAY WEATHER INFORMATION
 function weatherInformation(cityName) {
@@ -9,12 +8,7 @@ function weatherInformation(cityName) {
         .then(response => response.json())
         .then(res => {
             console.log(res);
-            displayWeather()
-            // STORES PREVIOUS SEARCHES IN LOCAL STORAGE
-            // var previous_search = JSON.parse(localStorage.getItem("weatherAPI")) || []
-            // previous_search.push(cityName)
-            // localStorage.setItem("weatherAPI", JSON.stringify(previous_search))
-            //
+            displayWeather();
             var displayWeatherInformationComponents = `
                 <div class="card" style"width: 18rem;">
                     <img src="http://openweathermap.org/img/w/${res.list[0].weather[0].icon}.png">
@@ -64,27 +58,28 @@ formEl.addEventListener("submit", function (event) {
     console.log(cityName, "HellO!");
     weatherInformation(cityName);
     weatherForecast(cityName);
+    // STORES RECENT SEARCHES IN THE LOCAL STORAGE
     var previous_search = JSON.parse(localStorage.getItem("weatherAPI")) || []
-            previous_search.push(cityName)
-            localStorage.setItem("weatherAPI", JSON.stringify(previous_search))
+    previous_search.push(cityName);
+    localStorage.setItem("weatherAPI", JSON.stringify(previous_search));
 });
 
 // DISPLAYS PREVIOUS SEARCHES
 function displayWeather() {
-    const searchEl = document.getElementById("weather-search")
-    var previous_search = JSON.parse(localStorage.getItem("weatherAPI")) || []
-    let html = ""
+    const searchEl = document.getElementById("weather-search");
+    var previous_search = JSON.parse(localStorage.getItem("weatherAPI")) || [];
+    let html = "";
     for (let i = 0; i < previous_search.length; i++) {
         html += `<li><button class="search" onclick="previousSearches('${previous_search[i]}')">${previous_search[i]}</button></li>`
-    }
-    searchEl.innerHTML = html
-}
+    };
+    searchEl.innerHTML = html;
+};
 
-displayWeather ()
+displayWeather();
 
 function previousSearches(cityName) {
-    event.preventDefault()
-    console.log(cityName)
-    weatherInformation(cityName)
-    weatherForecast(cityName)
+    event.preventDefault();
+    console.log(cityName);
+    weatherInformation(cityName);
+    weatherForecast(cityName);
 }

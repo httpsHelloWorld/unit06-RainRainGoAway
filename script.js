@@ -11,9 +11,9 @@ function weatherInformation(cityName) {
             console.log(res);
             displayWeather()
             // STORES PREVIOUS SEARCHES IN LOCAL STORAGE
-            var previous_search = JSON.parse(localStorage.getItem("weatherAPI")) || []
-            previous_search.push(cityName)
-            localStorage.setItem("weatherAPI", JSON.stringify(previous_search))
+            // var previous_search = JSON.parse(localStorage.getItem("weatherAPI")) || []
+            // previous_search.push(cityName)
+            // localStorage.setItem("weatherAPI", JSON.stringify(previous_search))
             //
             var displayWeatherInformationComponents = `
                 <div class="card" style"width: 18rem;">
@@ -64,6 +64,9 @@ formEl.addEventListener("submit", function (event) {
     console.log(cityName, "HellO!");
     weatherInformation(cityName);
     weatherForecast(cityName);
+    var previous_search = JSON.parse(localStorage.getItem("weatherAPI")) || []
+            previous_search.push(cityName)
+            localStorage.setItem("weatherAPI", JSON.stringify(previous_search))
 });
 
 // DISPLAYS PREVIOUS SEARCHES
@@ -72,9 +75,16 @@ function displayWeather() {
     var previous_search = JSON.parse(localStorage.getItem("weatherAPI")) || []
     let html = ""
     for (let i = 0; i < previous_search.length; i++) {
-        html += `<li><button class="search">${previous_search[i]}</button></li>`
+        html += `<li><button class="search" onclick="previousSearches('${previous_search[i]}')">${previous_search[i]}</button></li>`
     }
     searchEl.innerHTML = html
 }
 
 displayWeather ()
+
+function previousSearches(cityName) {
+    event.preventDefault()
+    console.log(cityName)
+    weatherInformation(cityName)
+    weatherForecast(cityName)
+}

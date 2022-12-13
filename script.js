@@ -1,6 +1,7 @@
 let formEl = document.querySelector('.searchBar');
 
 let keyAPI = '8a63d048dd1e649f180480a62f90d54e';
+console.log('JS')
 
 // DISPLAY WEATHER INFORMATION
 function weatherInformation(cityName) {
@@ -8,9 +9,12 @@ function weatherInformation(cityName) {
         .then(response => response.json())
         .then(res => {
             console.log(res);
+            displayWeather()
+            // STORES PREVIOUS SEARCHES IN LOCAL STORAGE
             var previous_search = JSON.parse(localStorage.getItem("weatherAPI")) || []
             previous_search.push(cityName)
             localStorage.setItem("weatherAPI", JSON.stringify(previous_search))
+            //
             var displayWeatherInformationComponents = `
                 <div class="card" style"width: 18rem;">
                     <img src="http://openweathermap.org/img/w/${res.list[0].weather[0].icon}.png">
@@ -55,8 +59,22 @@ function weatherForecast(cityName) {
 // MAKE THE SEARCH BAR FUNCTIONAL
 formEl.addEventListener("submit", function (event) {
     event.preventDefault();
+    console.log('form')
     let cityName = document.getElementById('searchBarInput').value;
-    console.log(cityName);
+    console.log(cityName, "HellO!");
     weatherInformation(cityName);
     weatherForecast(cityName);
 });
+
+// DISPLAYS PREVIOUS SEARCHES
+function displayWeather() {
+    const searchEl = document.getElementById("weather-search")
+    var previous_search = JSON.parse(localStorage.getItem("weatherAPI")) || []
+    let html = ""
+    for (let i = 0; i < previous_search.length; i++) {
+        html += `<li><button class="search">${previous_search[i]}</button></li>`
+    }
+    searchEl.innerHTML = html
+}
+
+displayWeather ()

@@ -70,7 +70,7 @@ function displayWeather() {
     var previous_search = JSON.parse(localStorage.getItem("weatherAPI")) || [];
     let html = "";
     for (let i = 0; i < previous_search.length; i++) {
-        html += `<li><button class="search" onclick="previousSearches('${previous_search[i]}')">${previous_search[i]}</button></li>`
+        html += `<li class="previousSearchList"><button class="search" onclick="previousSearches('${previous_search[i]}')">${previous_search[i]}</button></li>`
     };
     searchEl.innerHTML = html;
 };

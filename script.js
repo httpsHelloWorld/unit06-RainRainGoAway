@@ -8,6 +8,9 @@ function weatherInformation(cityName) {
         .then(response => response.json())
         .then(res => {
             console.log(res);
+            var previous_search = JSON.parse(localStorage.getItem("weatherAPI")) || []
+            previous_search.push(cityName)
+            localStorage.setItem("weatherAPI", JSON.stringify(previous_search))
             var displayWeatherInformationComponents = `
                 <div class="card" style"width: 18rem;">
                     <img src="http://openweathermap.org/img/w/${res.list[0].weather[0].icon}.png">
@@ -50,7 +53,7 @@ function weatherForecast(cityName) {
 };
 
 // MAKE THE SEARCH BAR FUNCTIONAL
-formEl.addEventListener("submit", function(event) {
+formEl.addEventListener("submit", function (event) {
     event.preventDefault();
     let cityName = document.getElementById('searchBarInput').value;
     console.log(cityName);

@@ -15,28 +15,6 @@ body {
 .searchBar {
     margin-top: 20px;
     margin-bottom: 1px;
-    text-align: center;
-}
-
-.searchBar input {
-    border: none;
-    border-radius: 100px;
-    width: 700px;
-    height: 33px;
-    font-size: 18px;
-}
-
-.searchBar button {
-    border: none;
-    border-radius: 100px;
-    height: 33px;
-    width: 150px;
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.searchBar button:hover {
-    background-color: lemonchiffon;
 }
 
 /* PREVIOUS SEARCHES */

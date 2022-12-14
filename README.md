@@ -1,5 +1,7 @@
 # Server-Side APIs Challenge: Weather Dashboard
 
+![](/image/Screenshot%202022-12-13%20at%209.59.45%20PM.png)
+
 Link: https://httpshelloworld.github.io/unit06-RainRainGoAway/
 
 ## User Story

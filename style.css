@@ -33,3 +33,8 @@ body {
 .search:hover {
     background-color: lemonchiffon;
 }
+
+/* FORMAT WEATHER FORECAST */
+#weatherForecast {
+    display: flex;
+}
